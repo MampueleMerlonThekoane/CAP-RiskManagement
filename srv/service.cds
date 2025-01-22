@@ -40,6 +40,5 @@ annotate RiskManagementService with @requires :
 [
     'authenticated-user',
     'RiskViewer',
-    'any',
     'RiskManager'
 ];

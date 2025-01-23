@@ -1,0 +1,24 @@
+version: '1.0'
+
+stages:
+  - name: Build
+    tasks:
+      - name: Install Dependencies
+        type: npmInstall
+      - name: Build Application
+        command: npm run build
+
+  - name: Test
+    tasks:
+      - name: Run Tests
+        command: npm test
+
+  - name: Deploy
+    tasks:
+      - name: Deploy to Cloud Foundry
+        type: cfDeploy
+        parameters:
+          apiEndpoint: 'https://api.cf.us10-001.hana.ondemand.com'
+          org: '<your-org>'
+          space: '<your-space>'
+          manifest: 'manifest.yml'

@@ -39,20 +39,6 @@
       }
     },
     {
-      "label": "npm-install",
-      "type": "process",
-      "command": "npm",
-      "args": [
-        "install"
-      ],
-      "dependsOn": [
-        "checkPort4004"
-      ],
-      "options": {
-        "cwd": "${workspaceFolder}"
-      }
-    },
-    {
       "label": "BuildMDK",
       "type": "process",
       "command": "npx",
@@ -96,6 +82,33 @@
       ],
       "dependsOn": [
         "BuildMDK"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      }
+    },
+    {
+      "label": "kill-cds-processes",
+      "type": "shell",
+      "command": "pids=$(ps aux | grep -vE 'grep|bash' | grep 'cds.js' | awk '{print $2}'); if [ -n \"$pids\" ]; then kill $pids; fi",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": false,
+        "clear": false
+      }
+    },
+    {
+      "label": "npm-install",
+      "type": "process",
+      "command": "npm",
+      "args": [
+        "install"
+      ],
+      "dependsOn": [
+        "kill-cds-processes"
       ],
       "options": {
         "cwd": "${workspaceFolder}"

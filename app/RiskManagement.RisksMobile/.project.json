@@ -1,0 +1,50 @@
+{
+	"Credential": "cf",
+	"Template": {
+		"Id": "@ext-mdkvsc-npm-dev/generator-mdk",
+		"Name": "CRUD",
+		"Version": "0.0.1"
+	},
+	"CF": {
+		"Target": "https://api.cf.us10-001.hana.ondemand.com",
+		"Organization": "4ebdcf1a-5f0e-430a-b1a6-bc8fbdb3bb3e",
+		"Space": "b4d7de4c-1b43-4b09-9662-530cecbf4bc2"
+	},
+	"MobileService": {
+		"Type": "standard",
+		"AdminAPI": "https://mobile-service-cockpit-api.cfapps.us10.hana.ondemand.com/cockpit/v1/org/4ebdcf1a-5f0e-430a-b1a6-bc8fbdb3bb3e/space/b4d7de4c-1b43-4b09-9662-530cecbf4bc2",
+		"AppId": "lcap.RiskManagement.RiskManagement.RisksMobile",
+		"Destination": [
+			"RiskManagementService"
+		],
+		"Create": true,
+		"DestinationName": "RiskManagementService",
+		"DestinationUrl": "https://e7b6b605trial-dev-riskmanagement-srv.cfapps.us10-001.hana.ondemand.com/service/RiskManagementSvcs",
+		"Uaa": "RiskManagement-uaa"
+	},
+	"Onboarding": {
+		"Schema": "sapmobilesvcs",
+		"TimeZone": "UTC",
+		"URL": "sapmobilesvcs://?AppId=lcap.RiskManagement.RiskManagement.RisksMobile&ClientId=d2c219a3-efe1-4747-88e7-2d4d8ad60397&ServerUrl=https://e7b6b605trial-dev-lcap-riskmanagement-riskmanagement-r-8gyj1hbd.cfapps.us10-001.hana.ondemand.com&SapCloudPlatformEndpoint=https://e7b6b605trial-dev-lcap-riskmanagement-riskmanagement-r-8gyj1hbd.cfapps.us10-001.hana.ondemand.com&AuthorizationEndpointUrl=https://e7b6b605trial-dev-lcap-riskmanagement-riskmanagement-r-8gyj1hbd.cfapps.us10-001.hana.ondemand.com/oauth2/api/v1/authorize&RedirectUrl=https://e7b6b605trial-dev-lcap-riskmanagement-riskmanagement-r-8gyj1hbd.cfapps.us10-001.hana.ondemand.com&TokenUrl=https://e7b6b605trial-dev-lcap-riskmanagement-riskmanagement-r-8gyj1hbd.cfapps.us10-001.hana.ondemand.com/oauth2/api/v1/token&multiUser=false"
+	},
+	"LCAP": {
+		"FullName": "RiskManagement.RisksMobile",
+		"Service": [
+			{
+				"mdk": "RiskManagement.RisksMobile/Services/RiskManagementService.service",
+				"cap": {
+					"name": "RiskManagementService",
+					"sourcePath": "srv/service.cds",
+					"path": "/service/RiskManagementSvcs/",
+					"entryPath": "/service/RiskManagementSvcs",
+					"destination": "RiskManagement-app-srv",
+					"value": "1"
+				}
+			}
+		],
+		"sourceTemplate": {
+			"id": "html5moduletemplates.basicSAPUI5ApplicationProjectModule",
+			"version": "1.40.12"
+		}
+	}
+}

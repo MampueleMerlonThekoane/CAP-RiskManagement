@@ -17,7 +17,7 @@
     },
     "dataSources": {
       "mainService": {
-        "uri": "service/RiskManagementSvcs/",
+        "uri": "/service/RiskManagementSvcs/",
         "type": "OData",
         "settings": {
           "annotations": [],
